@@ -12,9 +12,9 @@ namespace ConsoleApp1.HomeWork
         {
             WeatherCenter weatherCenter = new WeatherCenter();
 
-            weatherCenter.TemperatureChanged += temp => { Console.WriteLine($"Temperature: {temp}"); }; ;
-            weatherCenter.PreashureChanged += preashure => { Console.WriteLine($"Preashure: {preashure}"); }; ;
-            weatherCenter.WeatherChanged += windSpeed => { Console.WriteLine($"Wind speed is {windSpeed} m/s"); }; ;
+            weatherCenter.TemperatureChanged += temp => { Console.WriteLine($"Temperature: {temp}"); }; 
+            weatherCenter.PreashureChanged += preashure => { Console.WriteLine($"Preashure: {preashure}"); }; 
+            weatherCenter.WeatherChanged += windSpeed => { Console.WriteLine($"Wind speed is {windSpeed} m/s"); }; 
            
             await Task.Delay(-1);
         }
