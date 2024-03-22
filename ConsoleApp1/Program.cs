@@ -1,4 +1,4 @@
 ﻿using ConsoleApp1.HomeWork;
 
-var asd = new Weather();
-await asd.RunAsync();
+var project = new Weather();
+await project.RunAsync();
