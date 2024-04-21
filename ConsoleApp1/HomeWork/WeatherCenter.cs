@@ -14,7 +14,7 @@ namespace ConsoleApp1.HomeWork
 
         public WeatherCenter()
         {
-            Task.Run (CheckWeatherAsync);
+            Task.Run(CheckWeatherAsync);
             Task.Run(Checktemperatureasync);
             Task.Run(CheckPreasureAsync);
         }
@@ -31,8 +31,7 @@ namespace ConsoleApp1.HomeWork
         }
 
         private async Task Checktemperatureasync()
-        {
-           
+        {       
             while (true)
             {
                 var random = new Random();
@@ -43,8 +42,7 @@ namespace ConsoleApp1.HomeWork
         }
 
         private async Task CheckPreasureAsync()
-        {
-            
+        { 
             while (true)
             {
                 var random = new Random();
