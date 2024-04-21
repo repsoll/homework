@@ -1,4 +1,4 @@
-﻿using ConsoleApp1.HomeWork;
+﻿using Test.March20;
 
-var weather = new Weather();
-await weather.RunAsync();
+var homework = new March20();
+homework.Run();
