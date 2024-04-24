@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,31 +13,30 @@ namespace Test.March20
 
         public override string NextQuestion()
         {
-            string question = base.NextQuestion();
             string[] answer = GetAnswers();
+            string question = base.NextQuestion();
             Console.WriteLine(question);
-            Console.WriteLine("A) " + answer[0]);
-            Console.WriteLine("B) " + answer[1]);
-            Console.WriteLine("C) " + answer[2]);
-            Console.WriteLine("D) " + answer[3]);
+            Console.WriteLine(answer[0]);
+            Console.WriteLine(answer[1]);
+            Console.WriteLine(answer[2]);
+            Console.WriteLine(answer[3]);
             return question;
         }
 
-        public void StartGame1()
+        public void StartGame()
         {
-            StartGame();
+            GameRules();
             bool isGameFinished = false;
 
             do
             {
-
                 var question = NextQuestion();
                 Console.WriteLine(question);
-                bool userLost = AskingQuestions(question);
+                bool userLost = AskQuestion(question);
 
                 if (!userLost)
                 {
-                    if (questionIndex == questionsAnswers.Count)
+                    if (QuestionIndex == QuestionAndAnswers.Count)
                     {
                         Console.WriteLine("Congratulations! You won!");
                         isGameFinished = true;
@@ -60,8 +60,22 @@ namespace Test.March20
             } while (!isGameFinished);
         }
 
-        private bool AskingQuestions(string question)
+        private bool AskQuestion(string question)
         {
+            Dictionary<string, string> rightAnswer = new Dictionary<string, string>()
+            {
+                {Const.Question1, "D"},
+                {Const.Question2, "B"},
+                {Const.Question3, "B"},
+                {Const.Question4, "A"},
+                {Const.Question5, "A"},
+                {Const.Question6, "C"},
+                {Const.Question7, "D"},
+                {Const.Question8, "B"},
+                {Const.Question9, "C"},
+                {Const.Question10, "B"}
+            };
+
             Console.WriteLine("Do you want to use a hint? (Y/N)");
             string userHint = Console.ReadLine();
 
@@ -73,10 +87,8 @@ namespace Test.March20
             Console.WriteLine("Enter your answer (A/B/C/D): ");
             string userAnswer = Console.ReadLine().ToUpper();
 
-            string[] answers = questionsAnswers[question];
-            string rightAnswer = answers[0]; 
+            bool isCorrect = userAnswer == rightAnswer[question];
 
-            bool isCorrect = userAnswer == rightAnswer;
 
             if (isCorrect)
             {
@@ -84,7 +96,7 @@ namespace Test.March20
             }
             else
             {
-                Console.WriteLine("Incorrect! The correct answer was: " + rightAnswer);
+                Console.WriteLine("Incorrect! The correct answer was: " + rightAnswer[question]);
                 Console.WriteLine("Game over.");
             }
             return !isCorrect;
@@ -102,11 +114,11 @@ namespace Test.March20
             switch (choice)
             {
                 case 1:
-                    if (!hintIsUsed[0])
+                    if (!HintUsed[0])
                     {
                         Console.WriteLine("You choose 50/50 hint.We remove 2 incorrect answers");
-                        Hint1();
-                        hintIsUsed[0] = true;
+                        FiftyFiftyHint();
+                        HintUsed[0] = true;
                     }
                     else
                     {
@@ -114,11 +126,11 @@ namespace Test.March20
                     }
                     break;
                 case 2:
-                    if (!hintIsUsed[1])
+                    if (!HintUsed[1])
                     {
                         Console.WriteLine("You choose Phone a Friend hint.");
-                        Hint2();
-                        hintIsUsed[1] = true;
+                        CallFriendHint();
+                        HintUsed[1] = true;
                     }
                     else
                     {
@@ -126,11 +138,11 @@ namespace Test.March20
                     }
                     break;
                 case 3:
-                    if (!hintIsUsed[2])
+                    if (!HintUsed[2])
                     {
                         Console.WriteLine("You choose Ask the Audience hint logic.");
-                        Hint3();
-                        hintIsUsed[2] = true;
+                        AudienceHint();
+                        HintUsed[2] = true;
                     }
                     else
                     {
@@ -143,7 +155,7 @@ namespace Test.March20
             }
         }
 
-        private void Hint1()
+        private void FiftyFiftyHint()
         {
             string[] answer = GetAnswers();
             string correctAnswer = answer[0];
@@ -159,7 +171,7 @@ namespace Test.March20
             }
         }
 
-        private void Hint2()
+        private void CallFriendHint()
         {
             string[] answer = GetAnswers();
             Random rnd = new Random();
@@ -167,7 +179,7 @@ namespace Test.March20
             Console.WriteLine("Your friend suggests answer: " + answer[index]);
         }
 
-        private void Hint3()
+        private void AudienceHint()
         {
             string[] answer = GetAnswers();
             string correctAnswer = answer[0];

@@ -8,31 +8,31 @@ namespace Test.March20
 {
     public class Game
     {
-        public Dictionary<string, string[]> questionsAnswers;
-        public int questionIndex;
-        public bool[] hintIsUsed;
+        public Dictionary<string, string[]> QuestionAndAnswers;
+        public int QuestionIndex;
+        public bool[] HintUsed;
 
         public Game(Dictionary<string, string[]> questionAnswers)
         {
-            this.questionsAnswers = questionAnswers;
-            questionIndex = 0;
-            hintIsUsed = new bool[3];
+            this.QuestionAndAnswers = questionAnswers;
+            QuestionIndex = 0;
+            HintUsed = new bool[3];
         }
 
         public virtual string NextQuestion()
         {
-            string question = questionsAnswers.ElementAt(questionIndex).Key;
-            questionIndex++;
+            string question = QuestionAndAnswers.ElementAt(QuestionIndex).Key;
+            QuestionIndex++;
             return question;
         }
 
         public string[] GetAnswers()
         {
-            string[] answer = questionsAnswers.ElementAt(questionIndex).Value;
+            string[] answer = QuestionAndAnswers.ElementAt(QuestionIndex).Value;
             return answer;
         }
 
-        public void StartGame()
+        public void GameRules()
         {
             Console.WriteLine("Welcome to Who Wants to Be a Millionaire!");
             Console.WriteLine("Rules:");

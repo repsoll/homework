@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,21 +15,21 @@ namespace Test.March20
         {
 
             Dictionary<string, string[]> questionsAnswers = new Dictionary<string, string[]>()
-                {
-                     {"Question 1", new string[]{ "A", "B", "C", "D" } },
-                     { "Question 2", new string[]{ "A", "B", "C", "D" } },
-                     { "Question 3", new string[]{ "A", "B", "C", "D" } },
-                     { "Question 4", new string[]{ "A", "B", "C", "D" } },
-                     { "Question 5", new string[]{ "A", "B", "C", "D" } },
-                     { "Question 6", new string[]{ "A", "B", "C", "D" } },
-                     { "Question 7", new string[]{ "A", "B", "C", "D" } },
-                     { "Question 8", new string[]{ "A", "B", "C", "D" } },
-                     { "Question 9", new string[]{ "A", "B", "C", "D" } },
-                     { "Question 10", new string[]{ "A", "B", "C", "D" } }
-                };
+            {
+                 {Const.Question1, new string[]{ "A)Earth", "B)Venus", "C)Mars", "D)Jupiter" } }, // Jupiter
+                 {Const.Question2, new string[]{ "A)France", "B)Italy", "C)Spain", "D)Greece" } },
+                 {Const.Question3, new string[]{ "A)Amazon", "B)Nile", "C)Yangtze", "D)Mississippi" } },//Nile
+                 {Const.Question4, new string[]{ "A)H2O", "B)Wa", "C)W", "D)H2" } },
+                 {Const.Question5, new string[]{ "A)Canberra", "B)Sydney", "C)Melbourne", "D)Brisbane" } },//Canberra
+                 {Const.Question6, new string[]{ "A) Vincent van Gogh", "B)Pablo Picasso", "C)Leonardo da Vinci", "D)Michelangelo" } },//Leonardo da Vinci
+                 {Const.Question7, new string[]{ "A)Earth", "B)Mercury", "C)Venus", "D)Mars " } },//Mars
+                 {Const.Question8, new string[]{ "A)Mount Kilimanjaro", "B)Mount Everest", "C)Mount Fuji", "D)Mount McKinley" } },
+                 {Const.Question9, new string[]{ "A)G", "B)AG", "C)Au", "D)Fe" } },//Au
+                 {Const.Question10, new string[]{ "A)Oxygen", "B)Carbon", "C)Nitrogen", "D)Chlorine" } } //Carbon
+            };
 
             MainClass game = new MainClass(questionsAnswers);
-            game.StartGame1();
+            game.StartGame();
         }
     }
 }
