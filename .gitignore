@@ -1,22 +1,51 @@
-### AL ###
-#Template for AL projects for Dynamics 365 Business Central
-#launch.json folder
-.vscode/
-#Cache folder
-.alcache/
-#Symbols folder
-.alpackages/
-#Snapshots folder
-.snapshots/
-#Testing Output folder
-.output/
-#Extension App-file
+#Autosave files
+*~
+
+#build
+[Oo]bj/
+[Bb]in/
+packages/
+TestResults/
+Components/
+build/
+
+# globs
+Makefile.in
+*.DS_Store
+*.sln.cache
+*.suo
+*.cache
+*.pidb
+*.userprefs
+*.usertasks
+config.log
+config.make
+config.status
+aclocal.m4
+install-sh
+autom4te.cache/
+*.user
+*.tar.gz
+tarballs/
+test-results/
+Thumbs.db
+
+#Mac bundle stuff
+*.dmg
 *.app
-#Rapid Application Development File
-rad.json
-#Translation Base-file
-*.g.xlf
-#License-file
-*.flf
-#Test results file
-TestResults.xml
+._*
+
+#resharper
+*_Resharper.*
+*.Resharper
+
+#dotCover
+*.dotCover
+/.vs/config/applicationhost.config
+
+Droid/Resources/Resource\.designer\.cs
+
+\.vs/SafetyProduct/xs/UserPrefs\.xml
+\.vs/
+
+\.idea/\.idea\.SafetyProduct/\.idea/
